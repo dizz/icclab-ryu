@@ -37,40 +37,7 @@
 #
 class ryu {
 
-	#install the ryu server
-	package { "name":
-		ensure => installed,
-	}
-
-	# create user, group, files
-	user { "name":
-		comment => "First Last",
-		home => "/home/name",
-		ensure => present,
-		#shell => "/bin/bash",
-		#uid => '501',
-		#gid => '20'
-	}
-
-	group { "name":
-		gid => ,
-	}
-
-	file { "name":
-		ensure => file,
-	}
-
-	file { "name":
-		ensure => file,
-	}
-	
-	# setup service
-	service { "":
-	    enable => true,
-		ensure => running,
-		#hasrestart => true,
-		#hasstatus => true,
-		#require => Class["config"],
-	}
-
+	class {'ryu::install':} ->
+	class {'ryu::config':} ->
+	class {'ryu::service':}
 }

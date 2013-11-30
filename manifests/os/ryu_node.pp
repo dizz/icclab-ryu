@@ -1,4 +1,4 @@
-class icclab::networking::ryu_node (
+class ryu::os::ryu_node (
 		$ryu_server_ip      = '127.0.0.1',
 		$ryu_server_port    = 8080,
 		$ovsdb_interface    = 'eth0',
@@ -24,6 +24,7 @@ class icclab::networking::ryu_node (
 		provider => pip
 	}
 
+	# Is the DB setting needed?
 	neutron_plugin_ryu {
 		'database/connection':   value => "mysql://${neutron_db_user}:${neutron_db_pass}@${db_host}:${db_port}/${db_name}";
 		'OVS/openflow_rest_api': value => "${ryu_server_ip}:${ryu_server_port}";

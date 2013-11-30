@@ -2,7 +2,7 @@
 #
 #
 class ryu::install {
-	
+
 	#install the ryu server
 	if !defined(Package['python-pip']) {
     	package { 'python-pip': ensure => latest, }
@@ -35,12 +35,12 @@ class ryu::install {
 		mode   => 640,
 	}
 
-  file { "/etc/ryu/ryu.conf":
-		path    => '/etc/ryu/ryu.conf',
-		ensure  => file,
-		content => template('ryu/ryu.conf.erb'),
-		owner   => "ryu",
-		group   => "ryu",
-		mode    => 640,
-  }
+  # file { "/etc/ryu/ryu.conf":
+		# path    => '/etc/ryu/ryu.conf',
+		# ensure  => file,
+		# content => template('ryu/etc.ryu.conf.erb'),
+		# owner   => "ryu",
+		# group   => "ryu",
+		# mode    => 640,
+  # }
 }

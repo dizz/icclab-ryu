@@ -1,4 +1,4 @@
-class icclab::networking::ryu_server (
+class ryu::os::ryu_server (
 		$neutron_db_user    = 'neutron',
 		$neutron_db_pass    = 'neutron',
 		$db_host            = '127.0.0.1',

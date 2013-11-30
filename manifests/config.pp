@@ -8,7 +8,7 @@ class ryu::config (
 		$ofp_listen_port = '6633',
 	)
 {
-
+	# what more needs config? apps - format?
 	ryu_ini_conf{
 		'DEFAULT/wsapi_host':   value => $wsapi_host;
 		'DEFAULT/wsapi_port':   value => $wsapi_port;

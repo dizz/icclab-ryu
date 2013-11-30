@@ -35,9 +35,12 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class ryu {
+class ryu ($wsapi_host = '127.0.0.1', $ofp_listen_host='127.0.0.1') {
 
 	class {'ryu::install':} ->
-	class {'ryu::config':} ->
+	class {'ryu::config':
+		wsapi_host      => wsapi_host,
+		ofp_listen_host => ofp_listen_host,
+	} ->
 	class {'ryu::service':}
 }

@@ -3,6 +3,8 @@
 #
 class ryu::install {
 
+	include ryu::params
+
 	#install the ryu server
 	if !defined(Package['python-pip']) {
     	package { 'python-pip': ensure => latest, }
@@ -25,6 +27,13 @@ class ryu::install {
 	group { "ryu":
 		ensure => present,
 		system => true,
+	}
+
+	file { "/etc/ryu":
+	    ensure => "directory",
+	    owner  => "ryu",
+	    group  => "ryu",
+	    mode   => 750,
 	}
 
 	file { "/var/log/ryu":
@@ -66,7 +75,7 @@ class ryu::install {
 		  owner   => 'root',
 		  group   => 'root',
 		} ->
-		file { "/etc/ryu/ryu.conf":
+		file { "/etc/init/ryu.conf":
 		  path    => '/etc/init/ryu.conf',
 		  ensure  => file,
 		  content => template('ryu/ryu.conf.erb'),

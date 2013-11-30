@@ -5,11 +5,11 @@ start on runlevel [2345]
 stop on runlevel [!2345]
 
 
-# chdir <%= scope.lookupvar("ryu::params::sys_rundir") %>
+chdir <%= scope.lookupvar("ryu::params::sys_rundir") %>
 
 pre-start script
-    # mkdir -p <%= scope.lookupvar("ryu::params::ryu_rundir") %>
-    # chown ryu:root <%= scope.lookupvar("ryu::params::ryu_rundir") %>
+    mkdir -p <%= scope.lookupvar("ryu::params::ryu_rundir") %>
+    chown ryu:root <%= scope.lookupvar("ryu::params::ryu_rundir") %>
 
     # mkdir -p <%= scope.lookupvar("ryu::params::ryu_lockdir") %>
     # chown ryu:root <%= scope.lookupvar("ryu::params::ryu_lockdir") %>

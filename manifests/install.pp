@@ -8,6 +8,12 @@ class ryu::install {
     	package { 'python-pip': ensure => latest, }
   	}
 
+  	package { "ryu":
+      ensure   => installed,
+      provider => pip,
+      require  => Package['python-pip'],
+    }
+
 	user { 'ryu':
 	    ensure => present,
 	    gid    => 'ryu',
